@@ -127,36 +127,43 @@ const siteData = {
     priorities: [
       {
         number: '1',
+        image: 's1',
         title: 'Standing up for Parents and Teachers',
         description: 'When local school officials were attempting to force in-person instruction, Timmy sat down with parents and teachers to listen to their concerns. He became a leading voice for a smarter plan to safely resume instruction. Timmy\'s committed to the safety and security of our children, parents and teachers, and supports measures to help fix learning loss caused by the COVID-19 pandemic.',
       },
       {
         number: '2',
+        image: 's2',
         title: 'Supporting Law Enforcement',
         description: 'Timmy is a strong supporter of our men and women in blue who risk their lives every day to keep us safe. Calls to defund our local police will put our communities in danger. He will oppose any effort that harms law enforcement\'s ability to do their job.',
       },
       {
         number: '3',
+        image: 's3',
         title: 'Expanding Skilled Trades Programs',
         description: 'The Beson family have been avid supporters of the Bay/Arenac ISD, our local career center. Michigan students should have a pathway towards a good-paying career without having to attend college. In Lansing, he will continue to support efforts to expand career-based learning opportunities.',
       },
       {
         number: '4',
+        image: 's4',
         title: 'Fixing our Roads',
         description: "While Michigan's roads need work, the Governor's proposed 45 cent gas tax increase is not the answer. Neither is placing tolls on Bay City bridges. In Lansing, Timmy will work with both parties to find a bipartisan solution to fix our roads and bridges.",
       },
       {
         number: '5',
+        image: 's5',
         title: 'Protecting the Unborn',
         description: 'As a proud father of three, husband and Catholic, Timmy is unapologetically pro-life. Every child is a gift from God and deserves to have an opportunity to live their life to the fullest.',
       },
       {
         number: '6',
+        image: 's6',
         title: 'Looking out for our Seniors',
         description: 'In Lansing Timmy will fight to protect senior citizens from fraudulent scams. He also supports a repeal of the pension tax, which imposes an unfair burden on seniors who are already living on a fixed income.',
       },
       {
         number: '7',
+        image: 's7',
         title: 'Protecting our Constitutional Rights',
         description: 'As a gun owner and avid hunter, Timmy will make sure our Second Amendment right to keep and bear arms will not be infringed upon. Every Michigander has the right to keep their home, family and property safe.',
       },
@@ -172,6 +179,7 @@ const siteData = {
 
   // ── Signup Section ─────────────────────────────────────────
   signup: {
+    sectionLabel: 'Stay Updated',
     heading: 'Sign Up to Join Us',
     subheading: 'Be part of the movement for Bay County.',
     description: [

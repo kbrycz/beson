@@ -47,11 +47,8 @@ const SectionHeading = memo(function SectionHeading() {
 
 const InfoText = memo(function InfoText() {
   return (
-    <div className="text-center space-y-2">
-      <TextAnimate as="p" animation="fadeIn" by="word" delay={0} once className="text-sm md:text-base text-neutral-700">
-        Your support helps us continue our mission to create positive change.
-      </TextAnimate>
-      <TextAnimate as="p" animation="fadeIn" by="word" delay={0.1} once className="text-xs md:text-sm text-neutral-600">
+    <div className="text-center">
+      <TextAnimate as="p" animation="fadeIn" by="word" delay={0} once className="text-xs md:text-sm text-neutral-600">
         {siteData.donation.disclaimer}
       </TextAnimate>
     </div>

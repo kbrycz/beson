@@ -43,7 +43,7 @@ function AboutSection() {
             <AnimateIn delay={0.4}>
               <Link
                 to={about.ctaHref}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-lg transition-all duration-200 hover:brightness-110 hover:shadow-lg"
+                className="w-full md:w-auto flex items-center justify-center gap-2 md:inline-flex px-5 py-3.5 md:px-8 rounded-md md:rounded-full font-bold text-lg transition-all duration-200 hover:brightness-110 hover:shadow-lg"
                 style={{ backgroundColor: colors.accent[400], color: colors.white }}
               >
                 View all issues

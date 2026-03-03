@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'motion/react'
 import heroImage from '../assets/hero-bg.jpg'
 import logoImage from '../assets/logo.png'
 import { TextAnimate } from '@/components/ui/text-animate'
@@ -27,7 +28,11 @@ function HeroSection() {
   }
 
   const navLinks = siteData.navigation?.links || []
-  const headlineText = siteData.hero.headline.replace(/\.\s*$/, '')
+  const headlineStripped = siteData.hero.headline.replace(/\.\s*$/, '')
+  const words = headlineStripped.split(/\s+/).filter(Boolean)
+  const lastWord = words.pop() || ''
+  const headlineWithoutLastWord = words.join(' ')
+  const lastWordAndPeriod = lastWord ? `${lastWord}.` : '.'
 
   return (
     <>
@@ -152,11 +157,27 @@ function HeroSection() {
                 by="word"
                 delay={0.2}
                 once
+                aria-label={siteData.hero.headline}
                 className="text-4xl sm:text-5xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight inline"
               >
-                {headlineText}
+                {headlineWithoutLastWord ? `${headlineWithoutLastWord} ` : ''}
               </TextAnimate>
-              <span className="text-4xl sm:text-5xl md:text-5xl font-bold text-accent-400">.</span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.35 }}
+                className="text-4xl sm:text-5xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight whitespace-nowrap inline"
+              >
+                {lastWord ? (
+                  <>
+                    {lastWord}
+                    <span className="text-accent-400">.</span>
+                  </>
+                ) : (
+                  <span className="text-accent-400">.</span>
+                )}
+              </motion.span>
               {siteData.hero.subtitle && (
                 <AnimateIn delay={0.35} animation="fadeIn" className="mt-2">
                   <p className="text-base sm:text-lg text-white/90 tracking-wide">
@@ -367,11 +388,27 @@ function HeroSection() {
                 by="word"
                 delay={0.2}
                 once
+                aria-label={siteData.hero.headline}
                 className="text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight inline"
               >
-                {headlineText}
+                {headlineWithoutLastWord ? `${headlineWithoutLastWord} ` : ''}
               </TextAnimate>
-              <span className="text-6xl xl:text-7xl font-bold text-accent-400">.</span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.35 }}
+                className="text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight whitespace-nowrap inline"
+              >
+                {lastWord ? (
+                  <>
+                    {lastWord}
+                    <span className="text-accent-400">.</span>
+                  </>
+                ) : (
+                  <span className="text-accent-400">.</span>
+                )}
+              </motion.span>
               {siteData.hero.subtitle && (
                 <AnimateIn delay={0.35} animation="fadeIn" className="mt-3">
                   <p className="text-xl text-white/90 tracking-wide">

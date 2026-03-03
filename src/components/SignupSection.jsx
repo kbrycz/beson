@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import AnimateIn from './ui/AnimateIn'
 import { colors } from '@/config/colors'
+import siteData from '../config/siteData'
 import candidatePhoto from '../assets/candidate-portrait.jpg'
 
 function SignupSection() {
@@ -27,7 +28,15 @@ function SignupSection() {
           className="flex flex-col justify-center px-8 md:px-16 lg:px-20 py-16 md:py-20"
           style={{ backgroundColor: colors.neutral[50] }}
         >
-          <div className="max-w-md mx-auto w-full lg:ml-auto lg:mr-16">
+          <div className="max-w-md mx-auto w-full lg:ml-auto lg:mr-16 text-center lg:text-left">
+            <AnimateIn delay={0.1}>
+              <p
+                className="text-sm font-bold uppercase tracking-widest mb-4"
+                style={{ color: colors.accent[400] }}
+              >
+                {siteData.signup.sectionLabel}
+              </p>
+            </AnimateIn>
             <AnimateIn delay={0.2}>
               <h2
                 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 leading-tight tracking-tight text-primary-950"

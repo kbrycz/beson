@@ -5,6 +5,16 @@ import aboutImage from '../assets/about.jpg'
 import siteData from '../config/siteData'
 import { colors } from '@/config/colors'
 
+import s1 from '../assets/issues/s1.jpg'
+import s2 from '../assets/issues/s2.jpg'
+import s3 from '../assets/issues/s3.jpg'
+import s4 from '../assets/issues/s4.jpg'
+import s5 from '../assets/issues/s5.jpg'
+import s6 from '../assets/issues/s6.jpg'
+import s7 from '../assets/issues/s7.jpg'
+
+const issueImageMap = { s1, s2, s3, s4, s5, s6, s7 }
+
 function AgendaPage() {
   const agenda = siteData.agenda
 
@@ -39,45 +49,29 @@ function AgendaPage() {
             </AnimateIn>
           </div>
 
-          {/* Vertical gold line + numbered rows */}
-          <div className="relative">
-            {/* Vertical connector line (desktop only) */}
-            <div
-              className="hidden lg:block absolute left-[60px] top-0 bottom-0 w-px bg-accent-400/30"
-            />
-
-            <div className="space-y-6 lg:space-y-0">
-              {agenda.priorities.map((item, index) => (
-                <AnimateIn key={index} delay={0.25 + index * 0.08}>
-                  <div className="relative flex items-stretch lg:items-center gap-5 lg:gap-10 group">
-                    {/* Big number */}
-                    <div className="flex-shrink-0 relative z-10">
-                      <div
-                        className="w-14 h-14 lg:w-[120px] lg:h-[120px] rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 bg-white border-2 border-accent-400/50"
-                      >
-                        <span
-                          className="text-xl lg:text-4xl font-black tracking-tight text-accent-400"
-                        >
-                          {item.number}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content card */}
-                    <div
-                      className="flex-1 border-b border-neutral-200 py-6 lg:py-10 transition-all duration-300 group-hover:border-neutral-300"
-                    >
-                      <h3 className="text-xl md:text-2xl font-bold text-primary-950 mb-2 group-hover:translate-x-1 transition-transform duration-300">
-                        {item.title}
-                      </h3>
-                      <p className="text-neutral-700 leading-relaxed max-w-2xl text-base md:text-lg">
-                        {item.description}
-                      </p>
-                    </div>
+          <div className="space-y-5 lg:space-y-6">
+            {agenda.priorities.map((item, index) => (
+              <AnimateIn key={index} delay={0.25 + index * 0.08}>
+                <div className="relative flex items-center gap-5 lg:gap-10 group rounded-2xl bg-neutral-50 border border-neutral-200 p-5 lg:p-8 transition-all duration-300 hover:shadow-lg hover:border-neutral-300 hover:-translate-y-0.5">
+                  <div className="flex-shrink-0 overflow-hidden rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105">
+                    <img
+                      src={issueImageMap[item.image]}
+                      alt={item.title}
+                      className="w-20 h-20 md:w-28 md:h-28 lg:w-[180px] lg:h-[180px] object-cover"
+                    />
                   </div>
-                </AnimateIn>
-              ))}
-            </div>
+
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-primary-950 mb-1 lg:mb-2 transition-transform duration-300 group-hover:translate-x-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-neutral-600 leading-relaxed text-sm md:text-base lg:text-lg">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </AnimateIn>
+            ))}
           </div>
         </div>
       </section>
