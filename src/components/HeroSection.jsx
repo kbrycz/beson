@@ -143,7 +143,7 @@ function HeroSection() {
         </div>
 
         {/* Spacer - pushes content toward lower-center so background image is visible */}
-        <div className="flex-[0.85]" />
+        <div className="flex-[0.92]" />
 
         {/* Hero Content - centered on mobile, left-aligned on tablet */}
         <div className="relative z-10 px-5 sm:px-8 md:px-10 pb-8 sm:pb-10 md:pb-12">
