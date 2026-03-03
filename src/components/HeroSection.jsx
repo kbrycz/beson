@@ -38,12 +38,12 @@ function HeroSection() {
     <>
       {/* ===== MOBILE & TABLET LAYOUT ===== */}
       <section className="lg:hidden relative w-full min-h-[max(100vh,700px)] overflow-y-auto flex flex-col">
-        {/* Background Image */}
+        {/* Background Image - positioned to show face on mobile */}
         <img
           src={heroImage}
           alt="Hero"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: '90% top' }}
+          style={{ objectPosition: '90% -12%' }}
         />
 
         {/* Overlays - bottom-heavy gradient so candidate photo stays visible up top */}
@@ -143,7 +143,7 @@ function HeroSection() {
         </div>
 
         {/* Spacer - pushes content toward lower-center so background image is visible */}
-        <div className="flex-[0.55]" />
+        <div className="flex-[0.7]" />
 
         {/* Hero Content - centered on mobile, left-aligned on tablet */}
         <div className="relative z-10 px-5 sm:px-8 md:px-10 pb-8 sm:pb-10 md:pb-12">
