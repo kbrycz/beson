@@ -25,7 +25,7 @@ function VideoSection() {
           </AnimateIn>
 
           {/* Intro content - right */}
-          <div className="text-left">
+          <div className="text-center lg:text-left">
             <AnimateIn delay={0.1}>
               <p
                 className="text-sm font-bold uppercase tracking-widest mb-4"
@@ -40,19 +40,23 @@ function VideoSection() {
               </h2>
             </AnimateIn>
             {Array.isArray(intro.intro) ? (
-              intro.intro.map((paragraph, index) => (
-                <AnimateIn key={index} delay={0.2 + index * 0.05}>
-                  <p className="text-neutral-700 text-lg leading-relaxed mb-6">
-                    {paragraph}
+              <div className="text-left">
+                {intro.intro.map((paragraph, index) => (
+                  <AnimateIn key={index} delay={0.2 + index * 0.05}>
+                    <p className="text-neutral-700 text-lg leading-relaxed mb-6">
+                      {paragraph}
+                    </p>
+                  </AnimateIn>
+                ))}
+              </div>
+            ) : (
+              <div className="text-left">
+                <AnimateIn delay={0.2}>
+                  <p className="text-neutral-700 text-lg leading-relaxed mb-8">
+                    {intro.intro}
                   </p>
                 </AnimateIn>
-              ))
-            ) : (
-              <AnimateIn delay={0.2}>
-                <p className="text-neutral-700 text-lg leading-relaxed mb-8">
-                  {intro.intro}
-                </p>
-              </AnimateIn>
+              </div>
             )}
             <AnimateIn delay={Array.isArray(intro.intro) ? 0.35 : 0.3}>
               <Link

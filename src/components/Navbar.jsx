@@ -76,58 +76,57 @@ function Navbar({ variant = 'solid' }) {
         </div>
       </nav>
 
-      {/* Mobile Dropdown Menu */}
-      {mobileMenuOpen && (
-        <div
-          className={`lg:hidden fixed inset-0 z-50 min-h-screen overflow-y-auto pb-8 ${!isTransparent ? 'border-b border-neutral-200' : ''}`}
-          style={{ backgroundColor: isTransparent ? colors.primary[950] : colors.white }}
-        >
-          {/* Duplicate header row so it sits on top seamlessly */}
-          <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 pt-5 sm:pt-6 pb-4">
-            <Link to="/" className="block" onClick={() => setMobileMenuOpen(false)}>
-              <img
-                src={logoImage}
-                alt="Campaign Logo"
-                className="h-[5.6rem] sm:h-[6.5rem] md:h-[6.9rem] w-auto"
-              />
-            </Link>
-            <div className="flex items-center justify-end">
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-primary-950 p-1.5"
-                aria-label="Close menu"
-              >
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          {/* Nav Links */}
-          <div className="flex flex-col px-6 pt-2">
-            {navLinks.map((link) =>
-              <div key={link.label}>
-                {renderLink(
-                  link,
-                  mobileNavLinkClass,
-                  () => setMobileMenuOpen(false)
-                )}
-              </div>
-            )}
-          </div>
-
-          {/* Big DONATE button under nav links */}
-          <div className="px-6 pt-6 pb-2">
-            <a
-              href={siteData.campaign.donateUrl}
-              className="block w-full py-4 text-center bg-accent-400 hover:bg-accent-500 text-white font-bold text-lg tracking-[0.2em] uppercase rounded transition-colors duration-200 shadow-lg"
+      {/* Mobile Dropdown Menu - always in DOM to avoid logo/image flash on open */}
+      <div
+        className={`lg:hidden fixed inset-0 z-50 min-h-screen overflow-y-auto pb-8 transition-opacity duration-200 ${!isTransparent ? 'border-b border-neutral-200' : ''} ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        style={{ backgroundColor: isTransparent ? colors.primary[950] : colors.white }}
+        aria-hidden={!mobileMenuOpen}
+      >
+        {/* Duplicate header row so it sits on top seamlessly */}
+        <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 pt-5 sm:pt-6 pb-4">
+          <Link to="/" className="block" onClick={() => setMobileMenuOpen(false)}>
+            <img
+              src={logoImage}
+              alt="Campaign Logo"
+              className="h-[5.6rem] sm:h-[6.5rem] md:h-[6.9rem] w-auto"
+            />
+          </Link>
+          <div className="flex items-center justify-end">
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-primary-950 p-1.5"
+              aria-label="Close menu"
             >
-              DONATE
-            </a>
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
         </div>
-      )}
+
+        {/* Nav Links */}
+        <div className="flex flex-col px-6 pt-2">
+          {navLinks.map((link) =>
+            <div key={link.label}>
+              {renderLink(
+                link,
+                mobileNavLinkClass,
+                () => setMobileMenuOpen(false)
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Big DONATE button under nav links */}
+        <div className="px-6 pt-6 pb-2">
+          <a
+            href={siteData.campaign.donateUrl}
+            className="block w-full py-4 text-center bg-accent-400 hover:bg-accent-500 text-white font-bold text-lg tracking-[0.2em] uppercase rounded transition-colors duration-200 shadow-lg"
+          >
+            DONATE
+          </a>
+        </div>
+      </div>
 
       {/* ===== DESKTOP NAVBAR ===== */}
       <nav className="hidden lg:block relative z-20 w-full border-b border-neutral-200" style={bgStyle}>

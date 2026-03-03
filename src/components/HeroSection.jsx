@@ -82,66 +82,65 @@ function HeroSection() {
           </div>
         </nav>
 
-        {/* Mobile Dropdown Menu */}
-        {mobileMenuOpen && (
-          <div
-            className="fixed inset-0 z-30 min-h-screen overflow-y-auto pb-8"
-            style={{ backgroundColor: colors.white }}
-          >
-            {/* Duplicate header row so it sits on top seamlessly */}
-            <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 pt-5 sm:pt-6 pb-3">
-              <Link to="/" className="block" onClick={() => setMobileMenuOpen(false)}>
-                <img src={logoImage} alt="Campaign Logo" className="h-[5.6rem] sm:h-[6.5rem] md:h-[7.3rem] w-auto" />
-              </Link>
-              <div className="flex items-center justify-end">
-                <button
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-primary-950 p-1.5"
-                  aria-label="Close menu"
-                >
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            {/* Nav Links */}
-            <div className="flex flex-col px-6 pt-2">
-              {navLinks.map((link) =>
-                link.href.startsWith('/') ? (
-                  <Link
-                    key={link.label}
-                    to={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-primary-950 text-lg font-bold tracking-[0.2em] uppercase py-4 border-b border-neutral-200 hover:text-accent-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-primary-950 text-lg font-bold tracking-[0.2em] uppercase py-4 border-b border-neutral-200 hover:text-accent-400 transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                )
-              )}
-            </div>
-
-            {/* Big DONATE button under nav links */}
-            <div className="px-6 pt-6 pb-2">
-              <a
-                href={siteData.campaign.donateUrl}
-                className="block w-full py-4 text-center bg-accent-400 hover:bg-accent-500 text-white font-bold text-lg tracking-[0.2em] uppercase rounded transition-colors duration-200 shadow-lg"
+        {/* Mobile Dropdown Menu - always in DOM to avoid logo/image flash on open */}
+        <div
+          className={`fixed inset-0 z-30 min-h-screen overflow-y-auto pb-8 transition-opacity duration-200 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+          style={{ backgroundColor: colors.white }}
+          aria-hidden={!mobileMenuOpen}
+        >
+          {/* Duplicate header row so it sits on top seamlessly */}
+          <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 pt-5 sm:pt-6 pb-3">
+            <Link to="/" className="block" onClick={() => setMobileMenuOpen(false)}>
+              <img src={logoImage} alt="Campaign Logo" className="h-[5.6rem] sm:h-[6.5rem] md:h-[7.3rem] w-auto" />
+            </Link>
+            <div className="flex items-center justify-end">
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-primary-950 p-1.5"
+                aria-label="Close menu"
               >
-                DONATE
-              </a>
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
           </div>
-        )}
+
+          {/* Nav Links */}
+          <div className="flex flex-col px-6 pt-2">
+            {navLinks.map((link) =>
+              link.href.startsWith('/') ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-primary-950 text-lg font-bold tracking-[0.2em] uppercase py-4 border-b border-neutral-200 hover:text-accent-400 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-primary-950 text-lg font-bold tracking-[0.2em] uppercase py-4 border-b border-neutral-200 hover:text-accent-400 transition-colors"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
+          </div>
+
+          {/* Big DONATE button under nav links */}
+          <div className="px-6 pt-6 pb-2">
+            <a
+              href={siteData.campaign.donateUrl}
+              className="block w-full py-4 text-center bg-accent-400 hover:bg-accent-500 text-white font-bold text-lg tracking-[0.2em] uppercase rounded transition-colors duration-200 shadow-lg"
+            >
+              DONATE
+            </a>
+          </div>
+        </div>
 
         {/* Spacer - pushes content toward lower-center so background image is visible */}
         <div className="flex-[0.55]" />

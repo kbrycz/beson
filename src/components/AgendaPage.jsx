@@ -52,20 +52,20 @@ function AgendaPage() {
           <div className="space-y-5 lg:space-y-6">
             {agenda.priorities.map((item, index) => (
               <AnimateIn key={index} delay={0.25 + index * 0.08}>
-                <div className="relative flex items-center gap-5 lg:gap-10 group rounded-2xl bg-neutral-50 border border-neutral-200 p-5 lg:p-8 transition-all duration-300 hover:shadow-lg hover:border-neutral-300 hover:-translate-y-0.5">
-                  <div className="flex-shrink-0 overflow-hidden rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105">
+                <div className="relative flex flex-col md:flex-row md:items-center gap-4 md:gap-8 lg:gap-10 group rounded-2xl bg-neutral-50 border border-neutral-200 p-5 lg:p-8 transition-all duration-300 hover:shadow-lg hover:border-neutral-300 hover:-translate-y-0.5">
+                  <div className="overflow-hidden rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105 self-center md:self-auto md:flex-shrink-0">
                     <img
                       src={issueImageMap[item.image]}
                       alt={item.title}
-                      className="w-20 h-20 md:w-28 md:h-28 lg:w-[180px] lg:h-[180px] object-cover"
+                      className="w-full h-48 md:w-28 md:h-28 lg:w-[180px] lg:h-[180px] object-cover"
                     />
                   </div>
 
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 text-center md:text-left">
                     <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-primary-950 mb-1 lg:mb-2 transition-transform duration-300 group-hover:translate-x-1">
                       {item.title}
                     </h3>
-                    <p className="text-neutral-600 leading-relaxed text-sm md:text-base lg:text-lg">
+                    <p className="text-neutral-600 leading-relaxed text-sm md:text-base lg:text-lg text-left">
                       {item.description}
                     </p>
                   </div>
@@ -171,16 +171,16 @@ function AgendaPage() {
             </p>
           </AnimateIn>
           <AnimateIn delay={0.3}>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-4 w-full">
               <a
                 href={siteData.campaign.donateUrl}
-                className="inline-block bg-accent-400 hover:bg-accent-500 text-white font-bold px-10 py-4 rounded transition-all duration-200 shadow-lg text-sm tracking-[0.15em] uppercase hover:scale-105 active:scale-95"
+                className="block sm:inline-block w-full sm:w-auto text-center bg-accent-400 hover:bg-accent-500 text-white font-bold px-10 py-4 rounded transition-all duration-200 shadow-lg text-sm tracking-[0.15em] uppercase hover:scale-105 active:scale-95"
               >
                 DONATE NOW
               </a>
               <Link
                 to="/contact"
-                className="inline-block border-2 border-primary-950 text-primary-950 font-bold px-10 py-4 rounded text-sm tracking-[0.15em] uppercase transition-all duration-200 hover:bg-primary-950 hover:text-white no-underline"
+                className="block sm:inline-block w-full sm:w-auto text-center border-2 border-primary-950 text-primary-950 font-bold px-10 py-4 rounded text-sm tracking-[0.15em] uppercase transition-all duration-200 hover:bg-primary-950 hover:text-white no-underline"
               >
                 CONTACT US
               </Link>
