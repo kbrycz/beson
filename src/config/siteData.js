@@ -30,8 +30,8 @@ const siteData = {
       instagram: '#',
       twitter: '#',
     },
-    privacyUrl: '#',
-    termsUrl: '#',
+    privacyUrl: '/privacy',
+    termsUrl: '/terms',
   },
 
   // ── Donation ───────────────────────────────────────────────
@@ -65,13 +65,14 @@ const siteData = {
 
   // ── About Section (Homepage) ────────────────────────────────
   about: {
-    heading: 'About Timmy',
-    bio: [
-      'Timmy Beson is a lifelong resident of Bay County, a graduate of John Glenn High School, and the owner of his family business, Beson\'s Market, in Bay City.',
-      'He graduated from Saginaw Valley State University with a degree in Business Management. He is the proud father of two daughters and one son, all of whom attend Bangor Public Schools. He and his wife, Lisa, have been married for 20 years.',
-      'Before serving Bay County in Lansing, Timmy served as a School Board Member for Bangor Township Schools.',
-      'When Timmy is not grilling up delicious BBQ he can be found golfing, camping, or hunting with family and friends.',
+    sectionLabel: 'Where He Stands',
+    heading: 'Issues',
+    intro: [
+      'Timmy Beson is running on a clear agenda for Bay County: safe schools, strong communities, support for law enforcement, and real solutions for our roads and economy. He will work with both parties in Lansing to deliver results.',
+      'From supporting parents and teachers to backing law enforcement and expanding skilled trades, Timmy has a concrete plan to fight for the families and businesses that make our community strong. Read his full plan on the Issues page.',
     ],
+    ctaText: 'View full issues',
+    ctaHref: '/issues',
   },
 
   // ── About Page (Full Page) ────────────────────────────────
@@ -80,12 +81,14 @@ const siteData = {
     headline: 'A Voice for Bay County.',
     intro: [
       'Timmy Beson is a lifelong resident of Bay County, a graduate of John Glenn High School, and the owner of his family business, Beson\'s Market, in Bay City. He is running to represent our community in Lansing with the same values that have guided his life: family, faith, and service.',
-      'He graduated from Saginaw Valley State University with a degree in Business Management. He and his wife, Lisa, have been married for 20 years and are the proud parents of two daughters and one son, all of whom attend Bangor Public Schools.',
+      'He and his wife, Lisa, have been married for 20 years and are the proud parents of two daughters and one son, all of whom attend Bangor Public Schools.',
     ],
     bioLabel: 'From Our Community',
     bioHeading: 'His Story',
     bio: [
-      'Timmy Beson is a lifelong resident of Bay County, a John Glenn High School graduate, and the owner of his family business, Beson\'s Market, in Bay City. He graduated from Saginaw Valley State University with a degree in Business Management and is the proud father of two daughters and one son, all of whom attend Bangor Public Schools; he and his wife, Lisa, have been married for 20 years. Before serving Bay County in Lansing, Timmy served as a School Board Member for Bangor Township Schools. When he\'s not grilling up delicious BBQ, he can be found golfing, camping, or hunting with family and friends.',
+      'Timmy is a lifelong Bay County resident, John Glenn graduate, and owner of Beson\'s Market in Bay City. He has a degree in Business Management from Saginaw Valley State University.',
+      'He and his wife, Lisa, have been married for 20 years and are the proud parents of two daughters and one son, all of whom attend Bangor Public Schools. Before serving in Lansing, he was a School Board Member for Bangor Township Schools.',
+      'When he\'s not grilling or with family, he enjoys golfing, camping, and hunting. He brings that same commitment to Bay County every day in the State House.',
     ],
     valuesLabel: 'Our Platform',
     valuesHeading: 'What Timmy Stands For',
@@ -111,11 +114,12 @@ const siteData = {
 
   // ── Agenda / Issues Page ──────────────────────────────────────
   agenda: {
-    sectionLabel: 'Issues',
-    headline: 'Standing Up for Bay County.',
+    sectionLabel: 'Where He Stands',
+    headline: 'Issues',
     intro: [
       'Timmy Beson is running on a clear agenda built on the values that matter to Bay County: safe schools, strong communities, and real solutions for our roads and economy. He will work with both parties in Lansing to deliver results.',
       'From supporting parents and teachers to backing law enforcement and expanding skilled trades, Timmy has a concrete plan to fight for the families and businesses that make our community strong.',
+      'Below you can read his seven priorities for Lansing — from standing up for our schools and law enforcement to fixing our roads without tolls or a 45-cent gas tax, protecting seniors, and defending our constitutional rights.',
     ],
     prioritiesLabel: 'Issues',
     prioritiesHeading: 'What Timmy Stands For',
@@ -180,7 +184,10 @@ const siteData = {
   aboutIntro: {
     sectionLabel: 'Meet Timmy',
     headline: 'Your Neighbor. Your Advocate.',
-    intro: 'A lifelong Bay County resident and small business owner, Timmy Beson is running to represent our community in Lansing — standing up for families, schools, and the values that make our area strong.',
+    intro: [
+      'A lifelong Bay County resident and small business owner, Timmy Beson is running to represent our community in Lansing — standing up for families, schools, and the values that make our area strong.',
+      'He knows what it takes to meet payroll and serve neighbors. As a former Bangor Township School Board member and dad of three, he\'s committed to fighting for our schools, supporting law enforcement, and fixing our roads without raising taxes on working families.',
+    ],
   },
 
   // ── News & Press ─────────────────────────────────────────

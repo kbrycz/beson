@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import AnimateIn from './ui/AnimateIn'
-import { TextAnimate } from '@/components/ui/text-animate'
-import candidatePortrait from '../assets/candidate-portrait.jpg'
 import aboutImage from '../assets/about.jpg'
 import siteData from '../config/siteData'
 import { colors } from '@/config/colors'
@@ -13,62 +11,11 @@ function AgendaPage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: colors.white }}>
 
-      {/* ===== SECTION 1: Intro — Image Left, Text Right ===== */}
+      {/* ===== Issues — What Timmy Stands For (white background) ===== */}
       <section
+        id="priorities"
         className="w-full pt-12 pb-20 md:pt-16 md:pb-28 lg:pt-20 lg:pb-32"
         style={{ backgroundColor: colors.white }}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Image */}
-            <AnimateIn delay={0.2} className="w-full flex justify-center">
-              <div
-                className="rounded-lg overflow-hidden shadow-2xl"
-              >
-                <img
-                  src={candidatePortrait}
-                  alt={`${siteData.candidate.fullName} presenting his agenda`}
-                  className="w-full max-w-xl h-auto block"
-                />
-              </div>
-            </AnimateIn>
-
-            {/* Text Content */}
-            <div>
-              <AnimateIn delay={0.1}>
-                <p
-                  className="text-sm font-bold uppercase tracking-widest mb-4"
-                  style={{ color: colors.accent[400] }}
-                >
-                  {agenda.sectionLabel}
-                </p>
-              </AnimateIn>
-              <TextAnimate
-                as="h1"
-                animation="fadeIn"
-                by="word"
-                delay={0.15}
-                once
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-950 mb-8 leading-tight"
-              >
-                {agenda.headline}
-              </TextAnimate>
-              {agenda.intro.map((paragraph, index) => (
-                <AnimateIn key={index} delay={0.3 + index * 0.1}>
-                  <p className="text-neutral-700 text-lg leading-relaxed mb-6">
-                    {paragraph}
-                  </p>
-                </AnimateIn>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SECTION 2: Agenda Items — Full-Width Numbered Rows ===== */}
-      <section
-        className="w-full py-20 md:py-28 lg:py-32"
-        style={{ backgroundColor: colors.neutral[50] }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="text-center mb-16 lg:mb-20">

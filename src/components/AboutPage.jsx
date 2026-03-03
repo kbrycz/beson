@@ -99,10 +99,10 @@ function AboutPage() {
             </AnimateIn>
 
             {/* Bio Text */}
-            <div>
+            <div className="space-y-8">
               {about.bio.map((paragraph, index) => (
                 <AnimateIn key={index} delay={0.3 + index * 0.1}>
-                  <p className="text-neutral-700 text-lg leading-relaxed mb-0">
+                  <p className="text-neutral-700 text-lg leading-relaxed">
                     {paragraph}
                   </p>
                 </AnimateIn>

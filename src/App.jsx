@@ -13,6 +13,8 @@ import ContactPage from './components/ContactPage'
 import AgendaPage from './components/AgendaPage'
 import NewsPage from './components/NewsPage'
 import NewsArticlePage from './components/NewsArticlePage'
+import PrivacyPage from './components/PrivacyPage'
+import TermsPage from './components/TermsPage'
 
 function HomePage() {
   return (
@@ -52,6 +54,8 @@ function App() {
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:slug" element={<NewsArticlePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

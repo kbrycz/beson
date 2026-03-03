@@ -1,38 +1,38 @@
-import { useState, memo } from 'react'
+import { memo } from 'react'
 import { TextAnimate } from '@/components/ui/text-animate'
 import AnimateIn from './ui/AnimateIn'
 import siteData from '../config/siteData'
 import { colors } from '@/config/colors'
 
-function ContributionButtons() {
-  const [selectedAmount, setSelectedAmount] = useState(null)
-  const amounts = [...siteData.donation.amounts, 'Other']
+const baseDonateUrl = siteData.campaign.donateUrl
 
-  const handleAmountClick = (amount) => {
-    setSelectedAmount(selectedAmount === amount ? null : amount)
-  }
+function getDonateUrl(amount) {
+  if (amount === 'Other') return baseDonateUrl
+  const separator = baseDonateUrl.includes('?') ? '&' : '?'
+  return `${baseDonateUrl}${separator}amount=${amount}`
+}
+
+function ContributionButtons() {
+  const amounts = [...siteData.donation.amounts, 'Other']
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-      {amounts.map((amount, index) => {
-        const isSelected = selectedAmount === amount
-        return (
-          <button
-            key={index}
-            onClick={() => handleAmountClick(amount)}
-            className="px-4 py-4 md:px-6 md:py-5 rounded-md font-semibold text-base md:text-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            style={{
-              backgroundColor: isSelected ? colors.accent[400] : colors.white,
-              border: `2px solid ${colors.accent[400]}`,
-              color: isSelected ? colors.white : colors.accent[400],
-            }}
-            onMouseEnter={(e) => { if (!isSelected) e.target.style.backgroundColor = colors.neutral[100] }}
-            onMouseLeave={(e) => { if (!isSelected) e.target.style.backgroundColor = colors.white }}
-          >
-            {typeof amount === 'number' ? `$${amount}` : amount}
-          </button>
-        )
-      })}
+      {amounts.map((amount, index) => (
+        <a
+          key={index}
+          href={getDonateUrl(amount)}
+          className="px-4 py-4 md:px-6 md:py-5 rounded-md font-semibold text-base md:text-lg transition-all duration-200 shadow-md hover:shadow-lg text-center no-underline"
+          style={{
+            backgroundColor: colors.white,
+            border: `2px solid ${colors.accent[400]}`,
+            color: colors.accent[400],
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = colors.neutral[100] }}
+          onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = colors.white }}
+        >
+          {typeof amount === 'number' ? `$${amount}` : amount}
+        </a>
+      ))}
     </div>
   )
 }

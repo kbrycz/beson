@@ -50,8 +50,8 @@ function HeroSection() {
           }}
         ></div>
 
-        {/* Navbar - fixed at top on mobile */}
-        <nav className="fixed top-0 left-0 right-0 z-20 flex items-center justify-between px-4 sm:px-6 md:px-8 pt-5 sm:pt-6 pb-3">
+        {/* Navbar - scrolls with page on mobile */}
+        <nav className="relative z-20 flex items-center justify-between px-4 sm:px-6 md:px-8 pt-5 sm:pt-6 pb-3">
           <AnimateIn delay={0}>
             <Link to="/" className="block">
               <img src={logoImage} alt="Campaign Logo" className="h-[5.6rem] sm:h-[6.5rem] md:h-[7.3rem] w-auto" />
@@ -76,9 +76,6 @@ function HeroSection() {
             </button>
           </div>
         </nav>
-
-        {/* Spacer for fixed nav so content starts below it */}
-        <div className="h-20 flex-shrink-0" aria-hidden="true" />
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
